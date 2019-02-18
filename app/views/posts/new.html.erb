@@ -1,0 +1,11 @@
+<div id="post" class="new_post">
+  <h2>Setup your new post!</h2>
+
+    <%= form_with url: posts_path,scope: :post, method: :post, local: true do |form| %>
+    <%= render partial: '/posts/form', object: form %>
+
+    <div class="submit-field">
+      <%= form.submit %>
+    </div>
+
+    <%end%>

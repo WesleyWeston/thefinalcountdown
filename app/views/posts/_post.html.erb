@@ -1,0 +1,46 @@
+<div class = "paginate_index "><%= will_paginate @posts, remote: true %></div>
+
+	
+	<div class = "album py-5 bg-light ">
+		<div class = "container ">
+			<div class ="row ">
+
+
+
+		<%@posts.order("id").each do |x| %>
+			<div class="justify-content-center col-xl-4 col-lg-6 col-md-12">
+				<h4>
+					<a href="<%= "/posts/#{x.id}" %>"><%= x.description %></a>
+					
+					
+				</h4>
+
+
+
+				<h5>Post #<%= x.id %> by <a href="<%= "/users/#{User.find(x.user_id).id}" %>"><%=User.find_by_id(x.user_id).username%></a>
+				</h5>
+
+				
+
+				<div class="justify-content-center col-mb-4 shadow-sm ">
+					<%if x.image.thumb.url == nil %>
+						<%else%>
+							<%= image_tag(x.image.thumb.url)%>
+						<%end%></br>
+
+						
+				</div>
+
+
+
+					</br>
+					</br>
+					</br>
+			</div>
+
+			<%end%>
+		</div>
+	</div>
+
+
+<div class = "paginate_index"><%= will_paginate @posts %></div>

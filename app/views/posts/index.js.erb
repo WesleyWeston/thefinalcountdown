@@ -1,0 +1,4 @@
+// $('.sort_paginate_ajax').html("<%= escape_javascript(render("post"))%>")
+
+ $(".sort_paginate_ajax").html('<%=  escape_javascript(render :partial => 'post') %>');
+$('.pagination a').attr('data-remote', 'true');
