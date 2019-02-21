@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   get 'posts/destroy'
   get 'posts/index'
   get 'posts/show'
+  get 'posts/instagram'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
+
 
   
   resources :users

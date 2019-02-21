@@ -29,10 +29,18 @@ class PostsController < ApplicationController
   def destroy
   end
 
+  def instagram
+    @instagram = Instagram.user_recent_media
+  end
+
   def index
-    # byebug
+    
+          
+
     if params[:user_id]
       @posts = Post.search_post(params[:user_id])
+
+
       @posts = @posts.paginate(:page => params[:page], :per_page => 24)
       # @posts = @posts.all.user_id(params[:user_id]) if params[:user_id].present?
     else

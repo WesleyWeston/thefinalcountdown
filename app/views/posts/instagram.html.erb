@@ -1,0 +1,36 @@
+<div class= "justify-content-center">
+	 <h1>Instagram Photos</h1> 
+</div>
+
+
+	<div class = "album py-5 bg-light ">
+
+		<div class = "container ">
+
+			<div class ="row ">
+
+
+				<% loop = Instagram.user_recent_media.length  %>
+					<% i = 0 %>
+				<% while i < loop do %>
+					<%if Instagram.user_recent_media.include?("TooManyRequest") %>
+					<%else%>
+
+				<div class=" border justify-content-center col-xl-2 col-lg-3 col-md-4 col-sm-6">
+
+					<div class="justify-content-center col-mb-4 shadow-sm ">
+					<% if Instagram.user_recent_media[i].carousel_media %>
+						<%= image_tag(Instagram.user_recent_media[i].carousel_media[0].images.low_resolution.url, :class => "img-fluid")  %>
+					<% else %>
+						<%= image_tag(Instagram.user_recent_media[i].images.low_resolution.url, :class => "img-fluid") %>
+					 <% end %>
+
+						<% i = i + 1 %>
+					</div>
+				</div>
+				<% end %>
+				<%end%>
+			</div>
+		</div>
+		
+	</div>

@@ -1,0 +1,22 @@
+<%comment.order("id").each do |x| %>
+
+
+
+				
+
+				<div class="justify-content-center col-mb-4 shadow-sm ">
+					
+								<h6>Comment #<%= x.id %> by <a href="<%= "/users/#{User.find(x.user_id).id}" %>"><%=User.find_by_id(x.user_id).username%></a>
+				</h6>
+
+				<h6>
+					<%= x.comment_content %></a>
+					
+					
+				</h6>
+
+
+
+
+
+			<%end%>

@@ -46,7 +46,7 @@ gem 'mini_magick', '~> 4.8'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
-gem 'instagram'
+gem 'instagram',  :git => 'git://github.com/Instagram/instagram-ruby-gem.git'
 
 gem 'pg_search'
 
