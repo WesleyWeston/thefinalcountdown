@@ -46,6 +46,10 @@ gem 'mini_magick', '~> 4.8'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
+gem 'instagram'
+
+gem 'pg_search'
+
 #Use Figaro to keep keys in application.yml hidden from github
 gem 'figaro'
 # Use Capistrano for deployment

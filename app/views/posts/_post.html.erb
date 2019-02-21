@@ -1,41 +1,39 @@
-<div class = "paginate_index "><%= will_paginate @posts, remote: true %></div>
 
+<div class = "paginate_index "><%= will_paginate @posts, remote: true %></div>
 	
 	<div class = "album py-5 bg-light ">
+
 		<div class = "container ">
+
 			<div class ="row ">
 
 
 
-		<%@posts.order("id").each do |x| %>
-			<div class="justify-content-center col-xl-4 col-lg-6 col-md-12">
-				<h4>
-					<a href="<%= "/posts/#{x.id}" %>"><%= x.description %></a>
-					
-					
-				</h4>
 
+		<%@posts.each do |x| %>
+			<div class=" border justify-content-center col-xl-2 col-lg-3 col-md-4 col-sm-6">
 
-
-				<h5>Post #<%= x.id %> by <a href="<%= "/users/#{User.find(x.user_id).id}" %>"><%=User.find_by_id(x.user_id).username%></a>
-				</h5>
 
 				
 
 				<div class="justify-content-center col-mb-4 shadow-sm ">
 					<%if x.image.thumb.url == nil %>
 						<%else%>
-							<%= image_tag(x.image.thumb.url)%>
+							<a href="<%= "/posts/#{x.id}" %>"><%= image_tag(x.image.thumb.url, :class => "img-fluid") %></a>
 						<%end%></br>
 
-						
 				</div>
 
+				<h6>
+					<a href="<%= "/posts/#{x.id}" %>"><%= x.description %></a>
+					
+					
+				</h6>
 
 
-					</br>
-					</br>
-					</br>
+
+				<h6>Post #<%= x.id %> by <a href="<%= "/users/#{User.find(x.user_id).id}" %>"><%=User.find_by_id(x.user_id).username%></a>
+				</h6>
 			</div>
 
 			<%end%>

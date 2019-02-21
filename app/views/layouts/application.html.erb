@@ -16,13 +16,18 @@
 <body class='body justify-content-center'>
   <div class="header">
 
+  <nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+  
 
-
-    <ul class="nav justify-content-center">
+    <ul class=" nav container">
     <% if signed_in? -%>
-      <li><%= button_to "Log Out", logout_path,  method: :get%></li>
-      <li><%= button_to "New Post", posts_new_path, method: :get%></li>
-      <li><%= button_to "Posts", posts_path, method: :get%></li>
+    <div class="d-flex justify-content-start">
+      <div class="btn-group" role="group" aria-label="Basic example">
+      <li><%= button_to "Log Out", logout_path,  method: :get, class: "btn btn-secondary mr-1"%></li>
+      <li><%= button_to "New Post", posts_new_path, method: :get, class: "btn btn-secondary mr-1"%></li>
+      <li><%= button_to "Posts", posts_path, method: :get, class: "btn btn-secondary"%></li>
+      </div>
+    </div>
 
       <% user = current_user%>
       
@@ -31,20 +36,23 @@
         <%else%>
         <% profile_image = "avatar.png" %>
         <%end%>
-        <a href="<%= "/users/#{User.find_by_id(current_user.id).id}" %>"><%=image_tag (profile_image), style: 'position: absolute; right: 20vw; height:8vh; width:auto; border-radius: 100px'%></a>
-      Welcome back <%=user.username%>! 
-
+        <h2> <i> Welcome back <%=user.username%>! </i></h2> 
+         <a href="<%= "/users/#{User.find_by_id(current_user.id).id}" %>"><%=image_tag (profile_image), style: 'position: absolute; right: 20vw; width:75px; border-radius: 100px; top: 5px', class: "d-flex justify-content-end"%></a>        
+      
 
 
     <% else -%>
-      <li><%= button_to ("Sign in"), sign_in_path, method: :get %></li>
-      <li><%= button_to ("Sign up"), signup_path, method: :get %></li>
-      <li><%= button_to "Sign in with Google", "/auth/google_oauth2", method: :get%></li>
-      Welcome! Please sign in/up.
+    <div class="d-flex justify-content-start">
+      <li><%= button_to ("Sign in"), sign_in_path, method: :get, class: "btn btn-secondary mr-1" %></li>
+      <li><%= button_to ("Sign up"), signup_path, method: :get, class: "btn btn-secondary mr-1" %></li>
+      <li><%= button_to "Sign in with Google", "/auth/google_oauth2", method: :get, class: "btn btn-secondary mr-1"%></li>
+      <h2 class="text-center"> <i> Welcome! Please sign in/up. </i></h2> 
+    </div>
     <% end -%>
   </ul>
     
   </div>
+  </nav>
 
 
 

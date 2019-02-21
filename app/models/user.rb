@@ -2,6 +2,8 @@ class User < ApplicationRecord
 	#bcrypt password hash
   has_secure_password
 
+  include PgSearch
+
   mount_uploader :avatar, AvatarUploader
 
 #make sure email is present and unique
